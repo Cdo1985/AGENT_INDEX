@@ -1,0 +1,6 @@
+{
+  "name": "AI Agent Wiki & Strategy Catalog",
+  "description": "An interactive dictionary, newsletter archive, and wiki tracking top agentic development frameworks alongside execution strategies for autonomous wealth agents.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

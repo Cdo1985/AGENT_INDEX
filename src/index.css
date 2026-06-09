@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Georgia", "Newsreader", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Editorial Color Palette Variables */
+  --color-brand-paper: var(--brand-paper, #F9F8F6);
+  --color-brand-ink: var(--brand-ink, #121212);
+  --color-brand-accent: var(--brand-accent, #ea580c);
+  --color-brand-border: var(--brand-border, #121212);
+
+  /* Custom high-contrast layout animations & details */
+  --animate-fade-in: fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  --brand-paper: #F9F8F6;
+  --brand-ink: #121212;
+  --brand-accent: #ea580c;
+  --brand-border: #121212;
+  --brand-card-bg: #ffffff;
+  --brand-alert-bg: #f0eee9;
+}
+
+@layer utilities {
+  .editorial-card {
+    background: var(--brand-card-bg);
+    border: 1px solid var(--brand-border);
+    box-shadow: 2px 2px 0px var(--brand-border);
+  }
+  .editorial-card-interactive {
+    background: var(--brand-card-bg);
+    border: 1px solid var(--brand-border);
+    box-shadow: 2px 2px 0px var(--brand-border);
+    transition: all 0.15s ease-in-out;
+  }
+  .editorial-card-interactive:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--brand-border);
+  }
+  .editorial-card-interactive:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--brand-border);
+  }
+}
+
+/* HIGH-CONTRAST EDITORIAL DARK THEME RULES */
+.dark {
+  --brand-paper: #121212;
+  --brand-ink: #F9F8F6;
+  --brand-accent: #f97316;
+  --brand-border: #F9F8F6;
+  --brand-card-bg: #1c1c1c;
+  --brand-alert-bg: #272522;
+}
+
+/* Smooth transit block across whole UI components of the index */
+.dark, .dark * {
+  transition-property: background-color, border-color, text-decoration-color, fill, stroke;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Complete color-inversion support for existing inline Tailwind color tags: */
+.dark .bg-\[\#F9F8F6\] {
+  background-color: var(--brand-paper) !important;
+}
+
+.dark .text-\[\#121212\] {
+  color: var(--brand-ink) !important;
+}
+
+.dark .border-\[\#121212\] {
+  border-color: var(--brand-border) !important;
+}
+
+.dark .border-\[\#121212\]\/30 {
+  border-color: rgba(249, 248, 246, 0.25) !important;
+}
+
+.dark .border-\[\#121212\]\/20 {
+  border-color: rgba(249, 248, 246, 0.18) !important;
+}
+
+.dark .border-\[\#121212\]\/10 {
+  border-color: rgba(249, 248, 246, 0.1) !important;
+}
+
+.dark .border-stone-100 {
+  border-color: var(--brand-alert-bg) !important;
+}
+
+.dark .border-\[\#e5e4e2\] {
+  border-color: rgba(249, 248, 246, 0.15) !important;
+}
+
+.dark .bg-white {
+  background-color: var(--brand-card-bg) !important;
+}
+
+.dark .text-stone-500 {
+  color: #bfbeba !important;
+}
+
+.dark .text-stone-600 {
+  color: #cfceca !important;
+}
+
+.dark .text-stone-700 {
+  color: #dfdeda !important;
+}
+
+.dark .text-stone-800 {
+  color: #fcfbf9 !important;
+}
+
+.dark .text-stone-900 {
+  color: #ffffff !important;
+}
+
+.dark .text-stone-400 {
+  color: #9f9e9a !important;
+}
+
+.dark .text-stone-300 {
+  color: #d8d8d6 !important;
+}
+
+.dark .bg-\[\#f0eee9\] {
+  background-color: var(--brand-alert-bg) !important;
+}
+
+.dark .bg-stone-50 {
+  background-color: #1a1917 !important;
+}
+
+.dark .bg-stone-50\/50 {
+  background-color: rgba(26, 25, 23, 0.5) !important;
+}
+
+/* Interactions under dark theme */
+.dark .hover\:bg-stone-50:hover {
+  background-color: #272623 !important;
+}
+
+.dark .hover\:bg-stone-100:hover {
+  background-color: #2d2c29 !important;
+}
+
+.dark .hover\:bg-\[\#f0eee9\]:hover {
+  background-color: #2d2b27 !important;
+}
+
+.dark .hover\:bg-stone-800:hover {
+  background-color: #e6e5df !important;
+  color: #121212 !important;
+}
+
+/* Ensure inputs, textareas, selects adapt perfectly */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #22211e !important;
+  color: var(--brand-ink) !important;
+  border-color: rgba(249, 248, 246, 0.25) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #8c8b87 !important;
+}
+
+.dark .bg-stone-900 {
+  background-color: #0b0a0a !important;
+}
+
+.dark .text-stone-200 {
+  color: #f5f4f0 !important;
+}
+
