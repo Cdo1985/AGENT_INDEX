@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import WikisTab from "./components/WikisTab";
 import DictionaryTab from "./components/DictionaryTab";
 import StrategiesTab from "./components/StrategiesTab";
@@ -189,11 +190,19 @@ export default function App() {
 
         {/* Dynamic Tab Body Render */}
         <main className="min-h-[480px] pt-2" id="tab-body-container">
-          {activeTab === "wiki" && <WikisTab />}
-          {activeTab === "concepts" && <DictionaryTab />}
-          {activeTab === "strategies" && <StrategiesTab />}
-          {activeTab === "dispatch" && <NewsletterTab />}
-          {activeTab === "advisor" && <ConsultantTab />}
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {activeTab === "wiki" && <WikisTab />}
+            {activeTab === "concepts" && <DictionaryTab />}
+            {activeTab === "strategies" && <StrategiesTab />}
+            {activeTab === "dispatch" && <NewsletterTab />}
+            {activeTab === "advisor" && <ConsultantTab />}
+          </motion.div>
         </main>
       </div>
 
