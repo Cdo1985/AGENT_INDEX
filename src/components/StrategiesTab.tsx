@@ -17,7 +17,8 @@ import {
   Wrench,
   Compass,
   Code2,
-  FileDown
+  FileDown,
+  Printer
 } from "lucide-react";
 
 export default function StrategiesTab() {
@@ -475,13 +476,22 @@ export default function StrategiesTab() {
                   <h3 className="text-2xl md:text-3xl font-black font-serif italic text-[#121212]">{selectedStrategy.title}</h3>
                   <p className="text-sm text-stone-600 mt-1 font-serif italic">{selectedStrategy.objective}</p>
                 </div>
-                <button
-                  id="btn-download-pdf-expert"
-                  onClick={downloadPDF}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-[#121212] bg-[#f0eee9] hover:bg-stone-200 transition border-2 border-[#121212] shadow-[2px_2px_0px_#121212] hover:shadow-[1px_1px_0px_#121212] hover:translate-x-[1px] hover:translate-y-[1px] cursor-pointer shrink-0 self-start md:self-center font-mono"
-                >
-                  <FileDown className="w-4 h-4 text-[#ea580c]" /> Download PDF
-                </button>
+                <div className="flex flex-wrap gap-2 shrink-0 self-start md:self-center">
+                  <button
+                    id="btn-print-expert"
+                    onClick={() => window.print()}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-[#121212] bg-[#f0eee9] hover:bg-stone-200 transition border-2 border-[#121212] shadow-[2px_2px_0px_#121212] hover:shadow-[1px_1px_0px_#121212] hover:translate-x-[1px] hover:translate-y-[1px] cursor-pointer font-mono"
+                  >
+                    <Printer className="w-4 h-4 text-[#ea580c]" /> Print Article
+                  </button>
+                  <button
+                    id="btn-download-pdf-expert"
+                    onClick={downloadPDF}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-[#121212] bg-[#f0eee9] hover:bg-stone-200 transition border-2 border-[#121212] shadow-[2px_2px_0px_#121212] hover:shadow-[1px_1px_0px_#121212] hover:translate-x-[1px] hover:translate-y-[1px] cursor-pointer font-mono"
+                  >
+                    <FileDown className="w-4 h-4 text-[#ea580c]" /> Download PDF
+                  </button>
+                </div>
               </div>
 
               {/* Strategy specs banner */}
@@ -714,13 +724,22 @@ export default function StrategiesTab() {
                   </div>
                 </div>
 
-                <button
-                  id="btn-download-pdf-ai"
-                  onClick={downloadPDF}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-[#121212] bg-[#f0eee9] hover:bg-stone-200 transition border-2 border-[#121212] shadow-[2px_2px_0px_#121212] hover:shadow-[1px_1px_0px_#121212] hover:translate-x-[1px] hover:translate-y-[1px] cursor-pointer shrink-0 self-start md:self-center font-mono"
-                >
-                  <FileDown className="w-4 h-4 text-[#ea580c]" /> Download PDF
-                </button>
+                <div className="flex flex-wrap gap-2 shrink-0 self-start md:self-center">
+                  <button
+                    id="btn-print-ai"
+                    onClick={() => window.print()}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-[#121212] bg-[#f0eee9] hover:bg-stone-200 transition border-2 border-[#121212] shadow-[2px_2px_0px_#121212] hover:shadow-[1px_1px_0px_#121212] hover:translate-x-[1px] hover:translate-y-[1px] cursor-pointer font-mono"
+                  >
+                    <Printer className="w-4 h-4 text-[#ea580c]" /> Print Article
+                  </button>
+                  <button
+                    id="btn-download-pdf-ai"
+                    onClick={downloadPDF}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-[#121212] bg-[#f0eee9] hover:bg-stone-200 transition border-2 border-[#121212] shadow-[2px_2px_0px_#121212] hover:shadow-[1px_1px_0px_#121212] hover:translate-x-[1px] hover:translate-y-[1px] cursor-pointer font-mono"
+                  >
+                    <FileDown className="w-4 h-4 text-[#ea580c]" /> Download PDF
+                  </button>
+                </div>
               </div>
 
               {/* Justification & Architecture Overview */}

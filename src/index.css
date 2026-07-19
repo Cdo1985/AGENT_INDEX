@@ -183,3 +183,159 @@
   color: #f5f4f0 !important;
 }
 
+/* ============================================================================
+   EDITORIAL HIGH-CONTRAST WINDOW.PRINT STYLES
+   ============================================================================ */
+@media print {
+  /* Enforce standard clean light paper background and dark ink color */
+  html, body, #app-root, #main-grid, main, #tab-body-container {
+    background: #ffffff !important;
+    color: #121212 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+  }
+
+  /* Completely hide all non-article layout structures */
+  #top-bar-branding,
+  #header-banner,
+  #root-tabs-bar,
+  #api-security-alert,
+  #app-footer,
+  #stg-list-sidebar,
+  #strategy-headers-nav,
+  #ai-prompt-card,
+  #ai-error-box,
+  #section-live-worker-arbitrage,
+  form,
+  button,
+  .inline-flex,
+  [id^="btn-print-"],
+  [id^="btn-download-pdf-"],
+  [id^="btn-copy-"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Force the selected viewport or AI panel to take up 100% width and display elegantly */
+  #expert-subtab-container, #ai-subtab-container {
+    display: block !important;
+    grid-template-columns: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #stg-viewport, #ai-render-panel {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    color: #121212 !important;
+  }
+
+  /* Retain editorial typographic design in pure black/white */
+  h3 {
+    font-size: 24pt !important;
+    font-family: Georgia, serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    color: #121212 !important;
+    margin-bottom: 8pt !important;
+  }
+
+  h4 {
+    font-size: 13pt !important;
+    font-weight: bold !important;
+    color: #121212 !important;
+    border-bottom: 1px solid #121212 !important;
+    padding-bottom: 4pt !important;
+    margin-top: 18pt !important;
+    margin-bottom: 10pt !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  h5 {
+    font-size: 11pt !important;
+    font-weight: bold !important;
+    font-family: Georgia, serif !important;
+    font-style: italic !important;
+    color: #121212 !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  p, li {
+    font-size: 10pt !important;
+    line-height: 1.5 !important;
+    color: #27272a !important;
+  }
+
+  /* Code Block Formatting */
+  pre {
+    font-family: "JetBrains Mono", monospace !important;
+    font-size: 8pt !important;
+    line-height: 1.4 !important;
+    background-color: #f4f4f5 !important;
+    color: #18181b !important;
+    border: 1px solid #d4d4d8 !important;
+    padding: 12px !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Prevent elements breaking awkwardly across pages */
+  #stg-workflow > div > div,
+  #ai-workflow-steps > div,
+  #stg-safety,
+  #ai-safety-panel,
+  #stg-tips,
+  .grid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Adjust spacing elements */
+  .grid-cols-2, .grid-cols-4 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    background: #f4f4f5 !important;
+    border: 1px solid #d4d4d8 !important;
+    padding: 12px !important;
+  }
+
+  .grid-cols-2 > div, .grid-cols-4 > div {
+    flex: 1 1 150px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Direct alert or safety container styling */
+  #stg-safety, #ai-safety-panel {
+    background: #fafafa !important;
+    border: 2px solid #121212 !important;
+    padding: 12px !important;
+    margin-top: 14pt !important;
+  }
+
+  /* Add dynamic print header and footer if possible, or simple page margins */
+  @page {
+    size: portrait;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+}
+
+
